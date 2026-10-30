@@ -2503,7 +2503,12 @@ fn pings_telemetry(parsed: &Result<Cli, clap::Error>) -> bool {
 /// module place it after the options it injects, the way it places the rest of `args`.
 fn restore_leading_double_dash(command: &mut Commands) {
     match command {
-        Commands::Tsc { args }
+        Commands::Pytest { args }
+        | Commands::Mypy { args }
+        | Commands::Pip { args }
+        | Commands::Uv { args }
+        | Commands::Sqlfluff { args }
+        | Commands::Tsc { args }
         | Commands::Prettier { args }
         | Commands::Phpunit { args }
         | Commands::Phpstan { args }
